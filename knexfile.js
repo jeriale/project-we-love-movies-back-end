@@ -2,10 +2,6 @@ const path = require("path");
 
 if (process.env.USER) require("dotenv").config();
 
-/*  DATABASE_URL has been reassigned to the database
-    provided in the optional front-end project for both
-    the "development" and "production" environments. */
-
 const { DATABASE_URL } = process.env;
 
 module.exports = {
