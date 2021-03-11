@@ -4,7 +4,6 @@
   "description": "zid-be-project-movie-01-qualified",
   "main": "src/app.js",
   "scripts": {
-    "build": "webpack",
     "knex": "knex",
     "migrate": "knex migrate:latest",
     "reset": "npm run rollback && npm run migrate && npm run seed",
