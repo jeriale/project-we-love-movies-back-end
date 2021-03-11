@@ -19,9 +19,12 @@ exports.seed = async function (knex) {
 
   const joins = generateMoviesTheatersJoins(movieIds, theaterIds);
 
-  return knex
-    .raw("TRUNCATE TABLE movies_theaters RESTART IDENTITY CASCADE")
-    .then(function () {
-      return knex("movies_theaters").insert(joins);
-    });
+//  Attempted to RESTART IDENTITY CASCADE at KNEX SEED:RUN,
+//  which results in a SQLITE syntax error:
+
+//  return knex
+//    .raw("TRUNCATE TABLE movies RESTART IDENTITY CASCADE")
+//    .then(function () {
+        return knex("movies_theaters").insert(joins);
+//    });
 };

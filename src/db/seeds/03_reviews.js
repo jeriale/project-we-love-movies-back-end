@@ -43,10 +43,13 @@ exports.seed = async function (knex) {
   const movieIds = await knex("movies").select("movie_id");
 
   const reviews = generateReviews(criticIds, movieIds);
+  
+//  Attempted to RESTART IDENTITY CASCADE at KNEX SEED:RUN,
+//  which results in a SQLITE syntax error:
 
-  return knex
-    .raw("TRUNCATE TABLE reviews RESTART IDENTITY CASCADE")
-    .then(function () {
-      return knex("reviews").insert(reviews);
-    });
+//  return knex
+//    .raw("TRUNCATE TABLE movies RESTART IDENTITY CASCADE")
+//    .then(function () {
+        return knex("reviews").insert(reviews);
+//    });
 };
